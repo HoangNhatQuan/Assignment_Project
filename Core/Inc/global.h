@@ -19,5 +19,8 @@ extern int status;
 #define 	AUTO_GREEN	 	4
 #define 	AUTO_YELLOW 	5
 
+#define 	MAN_RED			11
+#define 	MAN_YELLOW		12
+#define 	MAN_GREEN		13
 
 #endif /* INC_GLOBAL_H_ */
