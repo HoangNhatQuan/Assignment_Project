@@ -390,9 +390,9 @@ void automatic_run(){
 
 0800036c <is_button_Pressed>:
 
-int TimeOutForKeyPress[NUM_OF_BUTTONS] =  {0,0,0};
+int TimeOutForKeyPress[NUM_OF_BUTTONS] =  {0,0,0};							// (*)
 
-int time_count_up[NUM_OF_BUTTONS] = {TIME_HOLD, TIME_HOLD, TIME_HOLD} ;
+int time_count_up[NUM_OF_BUTTONS] = {TIME_HOLD, TIME_HOLD, TIME_HOLD} ;		// (*)
 
 int is_button_Pressed(int index){
  800036c:	b480      	push	{r7}
@@ -557,7 +557,7 @@ void getKeyInput(){
  800047e:	4a41      	ldr	r2, [pc, #260]	; (8000584 <getKeyInput+0x17c>)
  8000480:	687b      	ldr	r3, [r7, #4]
  8000482:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
-
+	  	//else if (i == N) KeyRegN[i] = HAL_GPIO_ReadPin(your_button_port, your_button_pin);  (*)
 
 	  	if ((KeyReg0[i] == KeyReg1[i]) && (KeyReg1[i] == KeyReg2[i])){
  8000486:	4a3e      	ldr	r2, [pc, #248]	; (8000580 <getKeyInput+0x178>)
