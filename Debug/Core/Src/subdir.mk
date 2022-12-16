@@ -6,6 +6,8 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Core/Src/automatic.c \
+../Core/Src/button.c \
+../Core/Src/global.c \
 ../Core/Src/main.c \
 ../Core/Src/manual.c \
 ../Core/Src/stm32f1xx_hal_msp.c \
@@ -13,10 +15,13 @@ C_SRCS += \
 ../Core/Src/syscalls.c \
 ../Core/Src/sysmem.c \
 ../Core/Src/system_stm32f1xx.c \
-../Core/Src/timer.c 
+../Core/Src/timer.c \
+../Core/Src/tunning_mode.c 
 
 OBJS += \
 ./Core/Src/automatic.o \
+./Core/Src/button.o \
+./Core/Src/global.o \
 ./Core/Src/main.o \
 ./Core/Src/manual.o \
 ./Core/Src/stm32f1xx_hal_msp.o \
@@ -24,10 +29,13 @@ OBJS += \
 ./Core/Src/syscalls.o \
 ./Core/Src/sysmem.o \
 ./Core/Src/system_stm32f1xx.o \
-./Core/Src/timer.o 
+./Core/Src/timer.o \
+./Core/Src/tunning_mode.o 
 
 C_DEPS += \
 ./Core/Src/automatic.d \
+./Core/Src/button.d \
+./Core/Src/global.d \
 ./Core/Src/main.d \
 ./Core/Src/manual.d \
 ./Core/Src/stm32f1xx_hal_msp.d \
@@ -35,7 +43,8 @@ C_DEPS += \
 ./Core/Src/syscalls.d \
 ./Core/Src/sysmem.d \
 ./Core/Src/system_stm32f1xx.d \
-./Core/Src/timer.d 
+./Core/Src/timer.d \
+./Core/Src/tunning_mode.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

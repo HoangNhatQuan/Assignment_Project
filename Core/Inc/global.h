@@ -9,7 +9,6 @@
 
 #include "timer.h"
 #include "main.h"
-#include "automatic.h"
 
 extern int status;
 
@@ -19,8 +18,16 @@ extern int status;
 #define 	AUTO_GREEN	 	4
 #define 	AUTO_YELLOW 	5
 
-#define 	MAN_RED			11
-#define 	MAN_YELLOW		12
-#define 	MAN_GREEN		13
+#define 	MAN_RED_GREEN			10
+#define 	MAN_RED_YELLOW			11
+#define 	MAN_YELLOW_RED			12
+#define 	MAN_GREEN_RED			13
 
+#define		TUNING_GREEN		20
+#define 	TUNING_YELLOW		21
+
+
+extern int time_red ;
+extern int time_yellow ;
+extern int time_green ;
 #endif /* INC_GLOBAL_H_ */

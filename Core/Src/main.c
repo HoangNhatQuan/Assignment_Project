@@ -23,6 +23,11 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "global.h"
+#include "automatic.h"
+#include "manual.h"
+#include "tunning_mode.h"
+#include "button.h"
+#include "timer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -94,9 +99,13 @@ int main(void)
   /* USER CODE END 2 */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  status = INIT ;
+  setTimer1(100);
   while (1)
   {
 	  automatic_run();
+	  manual_run();
+	  tunning_mode();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -232,7 +241,10 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef* htim ) {
+		timerRun();
+		getKeyInput();
+}
 /* USER CODE END 4 */
 
 /**
