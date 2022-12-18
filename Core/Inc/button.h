@@ -13,12 +13,14 @@
 #define Button1 	Button_1_GPIO_Port
 #define Button2		Button_2_GPIO_Port
 #define Button3		Button_3_GPIO_Port
+#define PedBut		Ped_But_GPIO_Port
 //#define button N...
 
 //-------------define pin button----------------
 #define B1_PIN		Button_1_Pin
 #define B2_PIN		Button_2_Pin
 #define B3_PIN		Button_3_Pin
+#define PB_PIN		Ped_But_Pin
 //#define button N...
 
 //------------------ do not change code line from here-----------------
@@ -29,7 +31,7 @@
 //----- to here---
 
 //----- number of button------------- <can change>
-#define NUM_OF_BUTTONS 3
+#define NUM_OF_BUTTONS 4
 
 //normal press
 int is_button_Pressed(int index) ;

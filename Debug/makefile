@@ -50,6 +50,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 Assignment_Project.list \
 
+OBJCOPY_HEX += \
+Assignment_Project.hex \
+
 OBJCOPY_BIN += \
 Assignment_Project.bin \
 
@@ -61,8 +64,8 @@ all: main-build
 main-build: Assignment_Project.elf secondary-outputs
 
 # Tool invocations
-Assignment_Project.elf: $(OBJS) $(USER_OBJS) D:\project_mcu\Assignment_Project\STM32F103RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Assignment_Project.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\project_mcu\Assignment_Project\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Assignment_Project.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Assignment_Project.elf: $(OBJS) $(USER_OBJS) D:\learnin\vixuli-dieukhien\assignment\Assignment_Project\STM32F103RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Assignment_Project.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\learnin\vixuli-dieukhien\assignment\Assignment_Project\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Assignment_Project.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -76,6 +79,11 @@ Assignment_Project.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DE
 	@echo 'Finished building: $@'
 	@echo ' '
 
+Assignment_Project.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "Assignment_Project.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 Assignment_Project.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "Assignment_Project.bin"
 	@echo 'Finished building: $@'
@@ -83,10 +91,10 @@ Assignment_Project.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEP
 
 # Other Targets
 clean:
-	-$(RM) $(SIZE_OUTPUT)$(OBJDUMP_LIST)$(EXECUTABLES)$(OBJS)$(S_DEPS)$(S_UPPER_DEPS)$(C_DEPS)$(OBJCOPY_BIN) Assignment_Project.elf
+	-$(RM) $(OBJCOPY_HEX)$(SIZE_OUTPUT)$(OBJDUMP_LIST)$(EXECUTABLES)$(OBJS)$(S_DEPS)$(S_UPPER_DEPS)$(C_DEPS)$(OBJCOPY_BIN) Assignment_Project.elf
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
