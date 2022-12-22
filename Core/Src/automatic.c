@@ -45,8 +45,8 @@ void automatic_run(){
 			HAL_GPIO_WritePin(Tracffic_1A_GPIO_Port, Tracffic_1A_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(Tracffic_1B_GPIO_Port, Tracffic_1B_Pin, GPIO_PIN_RESET);
 			//tracffic 2 vang
-			HAL_GPIO_WritePin(Tracffic_2A_GPIO_Port, Tracffic_2A_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(Tracffic_2B_GPIO_Port, Tracffic_2B_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(Tracffic_2A_GPIO_Port, Tracffic_2A_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(Tracffic_2B_GPIO_Port, Tracffic_2B_Pin, GPIO_PIN_SET);
 
 			if(timer1_flag == 1){
 				status = AUTO_GREEN;
@@ -75,8 +75,8 @@ void automatic_run(){
 			break;
 		case AUTO_YELLOW:
 			//tracffic 1 vang
-			HAL_GPIO_WritePin(Tracffic_1A_GPIO_Port, Tracffic_1A_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(Tracffic_1B_GPIO_Port, Tracffic_1B_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(Tracffic_1A_GPIO_Port, Tracffic_1A_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(Tracffic_1B_GPIO_Port, Tracffic_1B_Pin, GPIO_PIN_SET);
 			//tracffic 2 do
 			HAL_GPIO_WritePin(Tracffic_2A_GPIO_Port, Tracffic_2A_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(Tracffic_2B_GPIO_Port, Tracffic_2B_Pin, GPIO_PIN_RESET);
