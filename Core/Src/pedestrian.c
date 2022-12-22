@@ -48,6 +48,10 @@ void pedestrian_run(){
 			pedesLightCountDown = LIGHT_TIME;
 			pedesStatus = PEDES_OFF;
 		}
+
+		if(is_button_Pressed(4)){
+			pedesStatus = PEDES_OFF;
+		}
 		break;
 	default:
 		break;

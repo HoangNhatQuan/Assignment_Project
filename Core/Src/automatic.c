@@ -12,11 +12,11 @@ void automatic_run(){
 	switch(status){
 		case INIT:
 			//tracffic 1
-			HAL_GPIO_WritePin(Tracffic_1A_GPIO_Port, Tracffic_1A_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(Tracffic_1B_GPIO_Port, Tracffic_1B_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(Tracffic_1A_GPIO_Port, Tracffic_1A_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(Tracffic_1B_GPIO_Port, Tracffic_1B_Pin, GPIO_PIN_RESET);
 			//tracffic 2
-			HAL_GPIO_WritePin(Tracffic_2A_GPIO_Port, Tracffic_2A_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(Tracffic_2B_GPIO_Port, Tracffic_2B_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(Tracffic_2A_GPIO_Port, Tracffic_2A_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(Tracffic_2B_GPIO_Port, Tracffic_2B_Pin, GPIO_PIN_RESET);
 			if(timer1_flag == 1){
 				status = AUTO_RED_3s;
 				setTimer1(time_green);
