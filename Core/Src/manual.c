@@ -15,7 +15,10 @@ void manual_run(){
 			//tracffic 2 xanh
 			HAL_GPIO_WritePin(Tracffic_2A_GPIO_Port, Tracffic_2A_Pin, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(Tracffic_2B_GPIO_Port, Tracffic_2B_Pin, GPIO_PIN_SET);
-			if(is_button_Pressed(0)) status = TUNING_GREEN ;
+			if(is_button_Pressed(0)) {
+				setTimer4(TIME_BACK_AUTO) ;
+				status = TUNING_GREEN ;
+			}
 			if(is_button_Pressed(1)) {
 				setTimer4(TIME_BACK_AUTO) ;
 				status = MAN_RED_YELLOW;
@@ -31,7 +34,10 @@ void manual_run(){
 			//tracffic 2 vang
 			HAL_GPIO_WritePin(Tracffic_2A_GPIO_Port, Tracffic_2A_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(Tracffic_2B_GPIO_Port, Tracffic_2B_Pin, GPIO_PIN_SET);
-			if(is_button_Pressed(0)) status = TUNING_GREEN ;
+			if(is_button_Pressed(0)) {
+				setTimer4(TIME_BACK_AUTO) ;
+				status = TUNING_GREEN ;
+			}
 			if(is_button_Pressed(1)) {
 				setTimer4(TIME_BACK_AUTO) ;
 				status = MAN_GREEN_RED;
@@ -47,7 +53,10 @@ void manual_run(){
 			//tracffic 2 do
 			HAL_GPIO_WritePin(Tracffic_2A_GPIO_Port, Tracffic_2A_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(Tracffic_2B_GPIO_Port, Tracffic_2B_Pin, GPIO_PIN_RESET);
-			if(is_button_Pressed(0)) status = TUNING_GREEN ;
+			if(is_button_Pressed(0)){
+				setTimer4(TIME_BACK_AUTO) ;
+				status = TUNING_GREEN ;
+			}
 			if(is_button_Pressed(1)) {
 				setTimer4(TIME_BACK_AUTO) ;
 				status = MAN_YELLOW_RED;
@@ -63,7 +72,10 @@ void manual_run(){
 			//tracffic 2 do
 			HAL_GPIO_WritePin(Tracffic_2A_GPIO_Port, Tracffic_2A_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(Tracffic_2B_GPIO_Port, Tracffic_2B_Pin, GPIO_PIN_RESET);
-			if(is_button_Pressed(0)) status = TUNING_GREEN ;
+			if(is_button_Pressed(0)){
+				setTimer4(TIME_BACK_AUTO) ;
+				status = TUNING_GREEN ;
+			}
 			if(is_button_Pressed(1)) {
 				setTimer4(TIME_BACK_AUTO) ;
 				status = MAN_RED_GREEN;

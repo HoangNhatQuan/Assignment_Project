@@ -25,6 +25,10 @@ void tunning_mode(){
 			if(is_button_Pressed(0)) {
 				status = AUTO_RED_3s ;
 			}
+
+			if(timer4_flag >= 1) {
+				status = AUTO_RED_3s ;
+			}
 			break;
 		case TUNING_GREEN:
 			//tracffic 1 xanh
@@ -41,6 +45,9 @@ void tunning_mode(){
 			}
 			if(is_button_Pressed(1)) status = TUNING_YELLOW;
 			if(is_button_Pressed(0)) {
+				status = AUTO_RED_3s ;
+			}
+			if(timer4_flag >= 1) {
 				status = AUTO_RED_3s ;
 			}
 			break;

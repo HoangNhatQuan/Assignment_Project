@@ -9,7 +9,7 @@
 #ifndef INC_MANUAL_H_
 #define INC_MANUAL_H_
 
-#define TIME_BACK_AUTO 		300
+#define TIME_BACK_AUTO 		10000
 void manual_run() ;
 
 #endif /* INC_MANUAL_H_ */
