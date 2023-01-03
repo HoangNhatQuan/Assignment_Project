@@ -27,10 +27,10 @@ int time_count_up[NUM_OF_BUTTONS] = {TIME_HOLD, TIME_HOLD, TIME_HOLD, TIME_HOLD}
 
 int is_button_Pressed(int index){
 	if(nor_flag[index] == 1){
-			nor_flag[index] = 0;
-			return 1;
-		}
-		return 0 ;
+		nor_flag[index] = 0;
+		return 1;
+	}
+	return 0 ;
 }
 int is_button_long_Pressed(int index){
 	if(long_flag[index] == 1) return 1;

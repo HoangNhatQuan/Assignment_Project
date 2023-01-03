@@ -14,8 +14,6 @@ int buzzerStatus = BUZZ_OFF;
 void pedestrian_run(){
 	switch (pedesStatus){
 	case PEDES_OFF:
-		HAL_GPIO_WritePin(Ped_ledA_GPIO_Port, Ped_ledA_Pin, RESET);
-		HAL_GPIO_WritePin(Ped_ledA_GPIO_Port, Ped_ledB_Pin, RESET);
 		__HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_1,0);
 		if(is_button_Pressed(3)){
 			pedesStatus = PEDES_ON;
@@ -28,7 +26,6 @@ void pedestrian_run(){
 		case AUTO_RED_3s: //khi den traffic do thi den pedestrian mau xanh va vang
 			HAL_GPIO_WritePin(Ped_ledA_GPIO_Port, Ped_ledA_Pin, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(Ped_ledB_GPIO_Port, Ped_ledB_Pin, GPIO_PIN_SET);
-
 			break;
 		case AUTO_RED_2s:
 			HAL_GPIO_WritePin(Ped_ledA_GPIO_Port, Ped_ledA_Pin, GPIO_PIN_SET);
@@ -59,6 +56,8 @@ void pedestrian_run(){
 			HAL_GPIO_WritePin(Ped_ledA_GPIO_Port, Ped_ledA_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(Ped_ledB_GPIO_Port, Ped_ledB_Pin, GPIO_PIN_RESET);
 			break;
+		default:
+			break;
 		}
 		if(timer5_flag == 1){
 			setTimer5(100);
@@ -80,11 +79,8 @@ void pedestrian_run(){
 		if(pedesLightCountDown <= 0){
 			pedesLightCountDown = LIGHT_TIME;
 			pedesStatus = PEDES_OFF;
-		}
-
-		if(is_button_Pressed(3)){
-			pedesStatus = PEDES_OFF;
-			pedesLightCountDown = LIGHT_TIME;
+			HAL_GPIO_WritePin(Ped_ledA_GPIO_Port, Ped_ledA_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(Ped_ledB_GPIO_Port, Ped_ledB_Pin, GPIO_PIN_RESET);
 		}
 		break;
 	default:
